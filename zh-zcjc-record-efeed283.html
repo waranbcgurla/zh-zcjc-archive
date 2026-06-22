@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>站点介绍 · 足彩竞猜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f7f3ed;
+            font-family: 'Georgia', 'Noto Serif SC', 'Songti SC', serif;
+            color: #3b2e24;
+            line-height: 1.65;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+        .page-wrap {
+            max-width: 820px;
+            width: 100%;
+        }
+
+        /* 卡片式主视觉 */
+        .hero-card {
+            background: #fffcf7;
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05), 0 2px 6px rgba(0, 0, 0, 0.02);
+            margin-bottom: 2.5rem;
+            border: 1px solid #e7ddd2;
+        }
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #2d221a;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        .hero-sub {
+            font-size: 1.05rem;
+            color: #6b5b4e;
+            border-left: 3px solid #c9b6a3;
+            padding-left: 1rem;
+            margin: 0.75rem 0 1.8rem 0;
+            font-style: normal;
+        }
+        .hero-text {
+            font-size: 1.06rem;
+            color: #3f3329;
+        }
+        .hero-text strong {
+            font-weight: 600;
+            color: #2d221a;
+        }
+
+        /* 用途卡片 - 两列网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+        .use-card {
+            background: #fffcf7;
+            border-radius: 20px;
+            padding: 1.8rem 1.8rem 2rem;
+            border: 1px solid #e5d9cd;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+        .use-card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #2d221a;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .use-card h3::before {
+            content: "·";
+            font-size: 1.8rem;
+            color: #b3987e;
+            line-height: 1;
+        }
+        .use-card p {
+            font-size: 0.97rem;
+            color: #4d3e32;
+            margin-bottom: 0.4rem;
+        }
+        .use-card .tag {
+            display: inline-block;
+            background: #eedfd1;
+            color: #3f2f22;
+            font-size: 0.8rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-top: 0.6rem;
+        }
+
+        /* 适合人群 用引用块风格 */
+        .audience-block {
+            background: #f3ece4;
+            border-radius: 18px;
+            padding: 1.8rem 2.2rem;
+            margin-bottom: 2.5rem;
+            border-left: 4px solid #b3987e;
+            font-size: 0.98rem;
+            color: #3b2e24;
+        }
+        .audience-block h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: #2d221a;
+        }
+        .audience-block ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1.8rem;
+        }
+        .audience-block li {
+            position: relative;
+            padding-left: 1.2rem;
+        }
+        .audience-block li::before {
+            content: "›";
+            position: absolute;
+            left: 0;
+            color: #b3987e;
+            font-size: 1.3rem;
+            line-height: 1;
+        }
+
+        /* 自然链接段落 + 提示框 */
+        .link-paragraph {
+            background: #fffcf7;
+            border-radius: 20px;
+            padding: 2rem 2.4rem;
+            border: 1px solid #e5d9cd;
+            margin-bottom: 2.5rem;
+            font-size: 1.02rem;
+        }
+        .link-paragraph p {
+            margin-bottom: 1.1rem;
+        }
+        .link-paragraph a {
+            color: #7f6248;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #c9b6a3;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .link-paragraph a:hover {
+            color: #4d3828;
+            text-decoration-color: #7f6248;
+        }
+
+        /* 提示框 / 注意 */
+        .note-box {
+            background: #f7f1ea;
+            border-radius: 14px;
+            padding: 1.2rem 1.8rem;
+            border: 1px dashed #d6c6b6;
+            margin: 1.8rem 0 0 0;
+            font-size: 0.95rem;
+            color: #4d3e32;
+        }
+        .note-box span {
+            font-weight: 500;
+            color: #3f2f22;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            background: #fffcf7;
+            border-radius: 20px;
+            padding: 1.8rem 2.2rem;
+            border: 1px solid #e5d9cd;
+            margin-bottom: 2rem;
+        }
+        .faq-mini h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #2d221a;
+            margin-bottom: 1.2rem;
+        }
+        .faq-item {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #ede4da;
+            padding-bottom: 0.8rem;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .faq-q {
+            font-weight: 500;
+            color: #2d221a;
+            margin-bottom: 0.2rem;
+        }
+        .faq-a {
+            color: #4d3e32;
+            font-size: 0.94rem;
+        }
+
+        /* 页脚 */
+        .footer-note {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #7a6a5c;
+            border-top: 1px solid #e5d9cd;
+            padding-top: 1.8rem;
+            margin-top: 1rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .hero-card {
+                padding: 2rem 1.5rem;
+            }
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .use-card {
+                padding: 1.5rem;
+            }
+            .audience-block {
+                padding: 1.5rem;
+            }
+            .audience-block ul {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+            .link-paragraph {
+                padding: 1.5rem;
+            }
+            .faq-mini {
+                padding: 1.5rem;
+            }
+        }
+        @media (max-width: 400px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
+            .hero-sub {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 主视觉卡片 -->
+    <div class="hero-card">
+        <h1 class="hero-title">站点介绍 · 一份可信的参考</h1>
+        <div class="hero-sub">关于 zh-zcjc.com 的信息卡片与使用视角</div>
+        <p class="hero-text">
+            <strong>足彩竞猜</strong> 领域的信息聚合与数据索引站点，面向对竞猜分析有兴趣的普通爱好者。<br>
+            这里不制造一夜爆红的预测神话，而是尝试用更清晰的逻辑、更克制的态度，把赛事数据、球队动态与盘面常识编织成可翻阅的索引卡片。<br>
+            站点本身不涉及投注引导，也不承诺任何收益，仅作为信息参考的起点。
+        </p>
+    </div>
+
+    <!-- 用途卡片（两列） -->
+    <div class="card-grid">
+        <div class="use-card">
+            <h3>信息索引</h3>
+            <p>按赛事、联赛、球队归类的基础数据与基本面摘要，便于快速查阅。</p>
+            <p>适合赛前回顾或赛后复盘时作为背景信息使用。</p>
+            <span class="tag">数据卡片</span>
+        </div>
+        <div class="use-card">
+            <h3>常识梳理</h3>
+            <p>盘口术语、赔付变化逻辑、常见指数解读等基础内容，以短文形式呈现。</p>
+            <p>不深挖策略，不贩卖焦虑，仅做知识层面的平实介绍。</p>
+            <span class="tag">轻阅读</span>
+        </div>
+    </div>
+
+    <!-- 适合人群（引用块风格） -->
+    <div class="audience-block">
+        <h2>适合这样的人群</h2>
+        <ul>
+            <li>刚接触竞猜、想先了解基本规则与赛事背景的新手</li>
+            <li>已有一定经验、希望补充数据维度的长期爱好者</li>
+            <li>对足球本身感兴趣、顺便关注指数动态的球迷</li>
+            <li>偏好文字阅读、不喜欢短视频碎片化信息的人</li>
+        </ul>
+        <p style="margin-top: 0.8rem; font-size:0.95rem;">站点内容不构成任何投注建议，请依据个人判断理性参考。</p>
+    </div>
+
+    <!-- 自然链接段落 + 提示框 -->
+    <div class="link-paragraph">
+        <p>
+            如果你对赛事基本面、球队历史交锋或联赛节奏感兴趣，不妨花几分钟翻一翻 <a href="https://zh-zcjc.com">足彩竞猜</a> 上的内容。<br>
+            这里更像一个信息工具台：没有喧嚣的直播弹幕，也没有催促下单的倒计时，只有经过筛选的数据卡片和文字说明。
+        </p>
+        <p>
+            每场比赛背后都有大量可以拆解的细节——伤病名单、主客场差异、裁判风格、天气甚至更衣室氛围。<br>
+            站点试图将这些碎片整理为可读的段落，让你在做出判断前多一个信息维度。
+        </p>
+        <div class="note-box">
+            <span>📌 一则提示：</span> 竞猜本身存在不确定性，任何信息都只是参考的一部分。<br>
+            保持自己的节奏，享受比赛本身，比单一的结果更重要。
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h2>常见疑问摘要</h2>
+        <div class="faq-item">
+            <div class="faq-q">这个站点提供预测吗？</div>
+            <div class="faq-a">不提供。站点只做数据整合与常识介绍，不输出赛果预测或投注建议。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">内容更新频率如何？</div>
+            <div class="faq-a">视赛事节奏而定，通常围绕主流联赛周期进行信息卡片更新，不定期补充基础文章。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">我可以直接复制内容吗？</div>
+            <div class="faq-a">引用时请标注来源。站点内容均为手动整理或原创编写，请尊重基本版权。</div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        信息卡片 · 仅供个人参考 &nbsp;|&nbsp; 理性判断，享受足球
+    </div>
+
+</div>
+</body>
+</html>
